@@ -56,7 +56,7 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 var port = process.env.PORT || 3100;
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'pproduction') {
   const credentials = {
     cert: fs.readFileSync('./cert.pem', 'utf8'),
     key: fs.readFileSync('./key.pem', 'utf8'),
