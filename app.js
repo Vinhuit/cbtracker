@@ -56,7 +56,7 @@ app.use((err, req, res, next) => {
 });
 
 const httpServer = http.createServer(app);
-httpServer.listen(3000, () => {
+httpServer.listen(80, () => {
   console.log('HTTPS Server running on port 3000');
 });
 
