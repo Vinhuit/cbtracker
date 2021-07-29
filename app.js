@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
+var port = process.env.PORT || 3000;
 
 const app = express();
 
@@ -56,7 +57,7 @@ app.use((err, req, res, next) => {
 });
 
 const httpServer = http.createServer(app);
-httpServer.listen(80, () => {
+httpServer.listen(port, () => {
   console.log('HTTPS Server running on port 3000');
 });
 
