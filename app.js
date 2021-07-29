@@ -56,6 +56,17 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 var port = process.env.PORT || 3100;
+if (process.env.NODE_ENV === 'production') {
+  const credentials = {
+    cert: fs.readFileSync('./cert.pem', 'utf8'),
+    key: fs.readFileSync('./key.pem', 'utf8'),
+  };
+  const httpsServer = https.createServer(credentials, app);
+  httpsServer.listen(443, () => {
+    console.log('HTTPS Server running on port 443');
+  });
+}
+
 const httpServer = http.createServer(app);
 httpServer.listen(port, () => {
   console.log('HTTPS Server running on port 3000');
